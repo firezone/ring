@@ -9,4 +9,4 @@ path = "../build.rs"
 
 # Keep this in sync with `[build-dependencies]` in ../Cargo.toml.
 [dependencies]
-cc = { version = "1.0.62", default-features = false }
+cc = { git = "https://github.com/youknowone/cc-rs", rev = "99f4211ad8dcc4f74c9bcd9364b39850538c5cb6", default-features = false }
