@@ -327,7 +327,7 @@ libc = { version = "0.2.80", default-features = false }
 
 # Keep this in sync with `[dependencies]` in pregenerate_asm/Cargo.toml.
 [build-dependencies]
-cc = { git = "https://github.com/youknowone/cc-rs", rev = "99f4211ad8dcc4f74c9bcd9364b39850538c5cb6", default-features = false }
+cc = { git = "https://github.com/youknowone/cc-rs", rev = "4ca92100c25ac2df679f0cce11c4c3e830f2e455", default-features = false }
 
 [features]
 # These features are documented in the top-level module's documentation.
