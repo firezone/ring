@@ -626,7 +626,18 @@ fn nasm(file: &Path, arch: &str, out_file: &Path) -> Command {
         "x86" => "win32",
         _ => panic!("unsupported arch: {}", arch),
     };
-    let mut c = Command::new("./target/tools/nasm");
+    let target_dir = {
+        let mut out_dir = PathBuf::from(std::env::var("OUT_DIR").unwrap());
+        loop {
+            let has_parent = out_dir.pop();
+            if out_dir.file_name() == Some("target".as_ref()) {
+                break out_dir;
+            } else if !has_parent {
+                panic!("`OUT_DIR` not in `target` directory");
+            }
+        }
+    };
+    let mut c = Command::new(target_dir.join("tools/nasm"));
     let _ = c
         .arg("-o")
         .arg(out_file.to_str().expect("Invalid path"))
